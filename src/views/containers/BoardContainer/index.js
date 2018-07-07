@@ -7,12 +7,10 @@ import {
   boardSelectors,
 } from '../../../state/board';
 
-import { 
-  modalActions
-} from '../../../state/modal';
+import BoardModal from '../../components/Modal/BoardModal'
 
+import { modalActions } from '../../../state/modal';
 
-import Modal from 'react-modal';
 
 // class BoardListContainer extends Component{
 //   componentWillMount() {
@@ -59,41 +57,19 @@ const BoardListContainer = props => {
     )
   }
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
-  };
-
-  const test = true;
+  
  
   return (
     <div>
       {BoardListUP}
-      
+
+      <BoardModal datas={props} />
+
       <div>
         <button onClick={()=>fetchOpenModal()}>
           글쓰기
         </button>
       </div>
-
-      <Modal
-          isOpen={isModalOpen}
-          contentLabel="Example Modal"
-        >
-
-          testtesttesttest
-
-          <button onClick={()=>fetchCloseModal()}>
-            closeModal
-          </button>
-        </Modal>
-
     </div>
   )
 }
