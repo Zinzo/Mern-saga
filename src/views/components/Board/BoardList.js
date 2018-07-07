@@ -1,16 +1,31 @@
 import React from 'react';
 
-const BoardList = props => {
-    return(
-    <div>
-        <div>
-        ID: {props._id}
-        </div>
-        <div>
-        Name: {props.name}
-        </div>
-    </div>
-    )
+const BoardList = (props) => {
+    const {
+        datas,
+        isFetching,
+      } = props;
+
+    if(isFetching){
+        return(
+          <div>Loading</div>
+        )
+      } else {
+          return(
+            <div>
+              <div>
+                ID: {datas._id}
+              </div>
+              <div>
+                Name: {datas.name}
+              </div>
+              <div>
+                Port: {datas.port}
+              </div>
+            </div>
+          )
+      }
+      return null;
 }
 
 export default BoardList;

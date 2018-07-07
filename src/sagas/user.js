@@ -14,7 +14,7 @@ import {
   fetchUserProfile
 } from '../apis/user';
 
-export function* getProfile(action) {
+export function* getProfile(action) { 
   const response = yield call(fetchUserProfile, action.payload.userID);
   yield put(userActions.fetchGetProfileSuccess(response));
 }

@@ -6,7 +6,18 @@ export function fetchBoardList() {
 
     return api.boardGet(
         endPoint,
-        fetchBoardList, 
+        boardListUrl, 
         null, 
     );
+}
+
+export function fetchBoardView(id) {
+    const endPoint = 'http://localhost:4200/serverport';
+    const boardViewUrl = id || '';
+
+    return api.boardGet(
+        endPoint,
+        boardViewUrl,
+        null,
+    )
 }

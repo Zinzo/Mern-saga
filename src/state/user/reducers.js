@@ -6,7 +6,6 @@ const initState = {
 }
 
 export default function user(state = initState, action) {
-  console.log("AAAA", action.type);
   switch(action.type) {
     case types.FETCH_GET_PROFILE: {
       return {

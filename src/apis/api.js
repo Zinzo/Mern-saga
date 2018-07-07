@@ -67,6 +67,17 @@ const Api = {
       },
       option,
     })
+  },
+
+  boardPost : ( endPoint, url, option ) => {
+    return request({
+      endPoint,
+      url,
+      init: {
+        method: 'POST',
+      },
+      option,
+    })
   }
 }
 

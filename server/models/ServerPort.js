@@ -10,6 +10,9 @@ var ServerPort = new Schema({
   },
   port: {
       type: Number
+  },
+  datas: {
+      type: String
   }
 },{
     collection: 'servers'

@@ -1,22 +1,24 @@
 import * as types from './types';
 
 const initState = {
-  port: '',
-  name: '값이 존재하지 않습니다.'
+  isFetching: false
 }
 
 export default function board(state = initState, action) {
-  console.log("BBB",action.type);
   switch(action.type) {
     case types.FETCH_GET_BOARDLIST: {
       return {
         ...state,
+        datas: [],
+        isFetching: true,
       }
     }
 
     case types.FETCH_GET_BOARDLIST_SUCCESS: {
       return {
-        
+        ...state,
+        datas: action.payload,
+        isFetching: false,
       }
     }
 

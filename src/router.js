@@ -26,6 +26,7 @@ const Footer = Loadable({loader: () => import("./views/layouts/Footer"),loading:
 {/* 페이지 */}
 const HomePage = Loadable({loader: () => import("./views/pages/Home"),loading: Loading, timeout: 1000});
 const AboutPage = Loadable({loader: () => import("./views/pages/About"),loading: Loading, timeout: 1000});
+const ListsPage = Loadable({loader: () => import("./views/pages/Lists"),loading: Loading, timeout: 1000});
 
 router = (
     <Fragment>
@@ -34,7 +35,8 @@ router = (
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
-                    <Route path="/about" component={AboutPage}/>
+                    {/* <Route path="/about" component={AboutPage}/> */}
+                    <Route exact path="/lists" component={ListsPage}/>
                 </Switch>
                 <Footer/>
             </div>

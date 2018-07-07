@@ -1,15 +1,14 @@
 import * as types from './types';
 
-export function fetchGetBoardListRequest(datas){
+export const fetchGetBoardListRequest = () => {
   return { 
-    type: types.FETCH_GET_BOARDLIST, 
-    payload: { datas }
+    type: types.FETCH_GET_BOARDLIST,
   }
 }  
 
-export function fetchGetBoardListSuccess(datas){
+export const fetchGetBoardListSuccess = ( datas ) => {
   return {
     type: types.FETCH_GET_BOARDLIST_SUCCESS, 
-    payload: { datas },
+    payload:  datas ,
   }
 }

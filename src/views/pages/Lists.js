@@ -2,9 +2,9 @@ import React from 'react';
 
 import PageTitle from '../components/PageTitle';
 import PageDescription from '../components/PageDescription';
-import UserContainer from '../containers/UserContainer';
+import BoardListContainer from '../containers/BoardContainer';
 
-function HomePage(props){
+function ListsPage(props){
   return(
     <div>
       <PageTitle 
@@ -15,9 +15,9 @@ function HomePage(props){
       />
       {/*
       */}
-      <UserContainer/>
+      <BoardListContainer />
     </div>
   )
 }
 
-export default HomePage;
+export default ListsPage;

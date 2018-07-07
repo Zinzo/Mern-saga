@@ -12,7 +12,7 @@ const UserContainer = (props) => {
     profile,
     isFetching,
     fetchGetProfileRequest,
-  } = props;
+  } = props; 
 
   return (
     <div>

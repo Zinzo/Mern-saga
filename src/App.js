@@ -9,9 +9,9 @@ import router from './router';
 const App = ({store}) => {
   return (
     <Provider store={store}>
-    <div className="App">
-    {router}
-  </div>
+      <div className="App">
+        {router}
+      </div>
     </Provider>
   );
 }
