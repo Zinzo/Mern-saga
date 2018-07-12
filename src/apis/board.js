@@ -21,3 +21,25 @@ export function fetchBoardView(id) {
         null,
     )
 }
+
+export function fetchBoardCreate(datas) {
+    const endPoint = "http://localhost:4200/serverport/add";
+    const boardCreateUrl = '';
+
+    return api.boardPost(
+        endPoint,
+        boardCreateUrl,
+        datas,
+    )
+    
+    // const serverport = {
+    //     name: this.state.name,
+    //     port: this.state.port
+    // }
+    // axios.post('http://localhost:4200/serverport/add', serverport)
+    // .then(res => console.log(res.data));
+    // this.setState({
+    //     name: '',
+    //     port: ''
+    // })"
+}

@@ -56,13 +56,10 @@ const BoardListContainer = props => {
       (datas , i ) =>  (<BoardList key={i} datas={datas} />)
     )
   }
-
-  
  
   return (
     <div>
       {BoardListUP}
-
       <BoardModal datas={props} />
 
       <div>

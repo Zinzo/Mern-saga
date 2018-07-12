@@ -15,6 +15,7 @@ function request(props){
     query,
     option,
     endPoint,
+    body,
   } = props;
 
   let strQuery = query ? `?${querystring.stringify(query)}` : '',
@@ -23,6 +24,7 @@ function request(props){
   return fetch(fetchUrl, {
       method: init.method,
       headers: buildHeaders(init.headers),
+      body : JSON.stringify(body)
     })
     .then(handleErrorResponse)
 }
@@ -69,14 +71,14 @@ const Api = {
     })
   },
 
-  boardPost : ( endPoint, url, option ) => {
+  boardPost : ( endPoint, url, body ) => {
     return request({
       endPoint,
       url,
       init: {
         method: 'POST',
       },
-      option,
+      body,
     })
   }
 }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'react-router-dom/es/Link';
 
-
-import * as css from '../../css/module'
+import { common } from '../../css';
 
 class Header extends Component {
 
@@ -15,7 +14,7 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item"><Link to={'/'} className="nav-link"><css.Title>Home</css.Title></Link></li>
+                            <li className="nav-item"><Link to={'/'} className="nav-link"><common.Title>Home</common.Title></Link></li>
                             <li className="nav-item"><Link to={'/lists'} className="nav-link">ListsPage</Link></li>
                             <li><Link to={'/edit/:id'}>Edit</Link></li>
                         </ul>

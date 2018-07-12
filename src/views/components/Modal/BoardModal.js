@@ -2,6 +2,8 @@ import React from 'react';
   
 import Modal from 'react-modal';
 
+import BoardForm from '../BoardForm/BoardForm'
+
 const BoardModal = (props) => {
 
     const { 
@@ -24,9 +26,10 @@ const BoardModal = (props) => {
         <Modal
             isOpen={isModalOpen}
             contentLabel="Example Modal"
+            ariaHideApp={false}
         >
 
-            testtesttesttest
+            <BoardForm />
 
             <button onClick={()=>fetchCloseModal()}>
                 closeModal

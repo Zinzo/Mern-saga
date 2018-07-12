@@ -22,6 +22,9 @@ const BoardList = (props) => {
               <div>
                 Port: {datas.port}
               </div>
+              <div>
+                datas: {datas.datas}
+              </div>
             </div>
           )
       }
