@@ -11,6 +11,10 @@ export function fetchBoardList() {
     );
 }
 
+// export function fetchBoardLoading() {
+//     console.log("Loading Success");
+// }
+
 export function fetchBoardView(id) {
     const endPoint = 'http://localhost:4200/serverport';
     const boardViewUrl = id || '';

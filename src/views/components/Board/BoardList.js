@@ -2,28 +2,30 @@ import React from 'react';
 
 const BoardList = (props) => {
     const {
-        datas,
-        isFetching,
+        datas, 
+        isFetching
       } = props;
 
     if(isFetching){
         return(
-          <div>Loading</div>
+          <div>testtest11123testetsetestetest</div>
         )
       } else {
           return(
-            <div>
-              <div>
-                ID: {datas._id}
-              </div>
-              <div>
-                Name: {datas.name}
-              </div>
-              <div>
-                Port: {datas.port}
-              </div>
-              <div>
-                datas: {datas.datas}
+            <div className="container">
+              <div className='row'>
+                <div className='col-3'>
+                  ID: {datas._id}
+                </div>
+                <div className='col-3'>
+                  Name: {datas.name}
+                </div>
+                <div className='col-3'>
+                  Port: {datas.port}
+                </div>
+                <div className='col-3'>
+                  datas: {datas.datas}
+                </div>
               </div>
             </div>
           )

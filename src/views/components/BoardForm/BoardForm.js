@@ -1,51 +1,14 @@
-// import React, { Component } from 'react';
-// import { withFormik } from 'formik';
-// import Yup from 'yup';
-
-// // Our inner form component. Will be wrapped with Formik({..})
-// const BoardForm = props => {
-
-//     return (
-//       <form>
-//         <label htmlFor="name" style={{ display: 'block' }}>
-//           name
-//         </label>
-//         <input
-//           id="name"
-//           placeholder="Enter your name"
-//           type="text"
-//         />
-
-//         <input
-//           id="port"
-//           placeholder="Enter your port"
-//           type="text"
-//         />
-
-//         <input
-//           id="data"
-//           placeholder="Enter your datas"
-//           type="text"
-//         />
-  
-//         <button
-//           type="button"
-//           className="outline"
-//         >
-//           Reset
-//         </button>
-//         <button type="submit" disabled="">
-//           Submit
-//         </button>
-//       </form>
-//     );
-//   };
-
-// export default BoardForm;
-
 import React from 'react';
 import { withFormik } from 'formik';
 import Yup from 'yup';
+
+import { connect } from 'react-redux';
+
+import BoardList from '../../components/Board/BoardList';
+import { 
+  boardActions,
+  boardSelectors,
+} from '../../../state/board';
 
 import { fetchBoardCreate } from '../../../apis/board';
 
@@ -61,9 +24,9 @@ const MyInnerForm = props => {
     handleBlur,
     handleSubmit,
     handleReset,
+    fetchGetBoardCreateRequest
   } = props;
 
-  console.log(props);
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name" style={{ display: 'block' }}>
@@ -114,6 +77,7 @@ const MyInnerForm = props => {
   );
 };
 
+
 const BoardForm = withFormik({
   mapPropsToValues: () => ({
     name: "",
@@ -125,19 +89,40 @@ const BoardForm = withFormik({
   //     .name('Invalid name address')
   //     .required('name is required!'),
   // }),
-  handleSubmit: (values, { setSubmitting }) => {
+  handleSubmit: (values, { setSubmitting, props }) => {
     const serverport = {
       name: values.name,
       port: values.port,
       datas : values.datas
     }
 
-    fetchBoardCreate(serverport)
+    fetchBoardCreate(serverport);
+
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
     }, 1000);
   },
 })(MyInnerForm);
+
+// const mapStateToProps = (state) => {
+//   return {
+      
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   // 즉시 실행 (액션)
+//   return{
+//     fetchGetBoardCreateRequest: () => {
+//       dispatch(boardActions.fetchGetBoardCreateRequest());
+//     }
+//   }
+// }
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(BoardForm);
 
 export default BoardForm;

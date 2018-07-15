@@ -14,6 +14,14 @@ export default function board(state = initState, action) {
       }
     }
 
+    // case types.FETCH_GET_BOARDLOADING: {
+    //   return {
+    //     ...state,
+    //     datas: action.payload,
+    //     isFetching: false,
+    //   }
+    // }
+
     case types.FETCH_GET_BOARDLIST_SUCCESS: {
       return {
         ...state,
@@ -21,6 +29,14 @@ export default function board(state = initState, action) {
         isFetching: false,
       }
     }
+    
+    // 리덕스 시도중
+    // case types.FETCH_GET_BOARDCREATE: {
+    //   return {
+    //     ...state,
+    //     datas: action.payload
+    //   }
+    // }
 
     default: 
       return state

@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 import BoardForm from '../BoardForm/BoardForm'
 
 const BoardModal = (props) => {
-
     const { 
         isModalOpen,
         fetchCloseModal,

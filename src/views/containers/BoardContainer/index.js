@@ -46,6 +46,7 @@ const BoardListContainer = props => {
     isModalOpen,
     fetchCloseModal,
   } = props;
+  
 
   // Map 돌릴 변수 초기값 설정
   let BoardListUP = [];
@@ -53,14 +54,14 @@ const BoardListContainer = props => {
   // Map 돌리기 전 예외 처리 및 변수에 담기
   if (datas.BoardDatas.length>0){
     BoardListUP = datas.BoardDatas.map(
-      (datas , i ) =>  (<BoardList key={i} datas={datas} />)
+      (datas , i ) =>  (<BoardList key={i} datas={datas} isFetching={isFetching}  />)
     )
   }
- 
+
   return (
     <div>
       {BoardListUP}
-      <BoardModal datas={props} />
+      <BoardModal datas={props}/>
 
       <div>
         <button onClick={()=>fetchOpenModal()}>
@@ -71,7 +72,7 @@ const BoardListContainer = props => {
   )
 }
 
-const mapStateToProps = (state) => { 
+const mapStateToProps = (state) => {
   return {
       datas: boardSelectors.boardListSelector(state),
       isFetching: state.board.isFetching,
