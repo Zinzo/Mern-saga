@@ -6,6 +6,8 @@ import {
     takeEvery,  
   } from 'redux-saga/effects';
   
+  import { delay } from 'redux-saga'
+
   import { 
     boardTypes, 
     boardActions,
@@ -25,9 +27,9 @@ import {
 
   export function* getBoardCreate(action) {
     yield call(fetchBoardCreate,action.payload);
-    
-    
     yield call(getBoardList);
+    yield delay(500);
+    yield put({ type : 'modal/CLOSE_MODAL' });
   }
 
   // export function* getBoardLoading(action) {
