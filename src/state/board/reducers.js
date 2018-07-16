@@ -30,13 +30,12 @@ export default function board(state = initState, action) {
       }
     }
     
-    // 리덕스 시도중
-    // case types.FETCH_GET_BOARDCREATE: {
-    //   return {
-    //     ...state,
-    //     datas: action.payload
-    //   }
-    // }
+    case types.FETCH_GET_BOARDCREATE: {
+      return {
+        ...state,
+        datas: action.payload
+      }
+    }
 
     default: 
       return state

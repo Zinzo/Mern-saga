@@ -10,8 +10,6 @@ import {
   boardSelectors,
 } from '../../../state/board';
 
-import { fetchBoardCreate } from '../../../apis/board';
-
 // Our inner form component. Will be wrapped with Formik({..})
 const MyInnerForm = props => {
   const {
@@ -84,11 +82,13 @@ const BoardForm = withFormik({
     port : "",
     datas : ""
   }),
+
   // validationSchema: Yup.object().shape({
   //   name: Yup.string()
   //     .name('Invalid name address')
   //     .required('name is required!'),
   // }),
+  
   handleSubmit: (values, { setSubmitting, props }) => {
     const serverport = {
       name: values.name,
@@ -96,33 +96,23 @@ const BoardForm = withFormik({
       datas : values.datas
     }
 
-    fetchBoardCreate(serverport);
+    
 
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+    props.fetchGetBoardCreateRequest( serverport );
+    setSubmitting(false);
   },
 })(MyInnerForm);
 
-// const mapStateToProps = (state) => {
-//   return {
-      
-//   }
-// }
+const mapDispatchToProps = ( dispatch ) => {
+  // 즉시 실행 (액션)
+  return({
+    fetchGetBoardCreateRequest: ( datas ) => {
+      dispatch(boardActions.fetchGetBoardCreateRequest( datas ));
+    }
+  })
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//   // 즉시 실행 (액션)
-//   return{
-//     fetchGetBoardCreateRequest: () => {
-//       dispatch(boardActions.fetchGetBoardCreateRequest());
-//     }
-//   }
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(BoardForm);
-
-export default BoardForm;
+export default connect(
+  null,
+  mapDispatchToProps
+)(BoardForm);
