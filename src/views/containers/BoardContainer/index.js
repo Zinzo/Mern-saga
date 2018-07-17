@@ -11,31 +11,6 @@ import BoardModal from '../../components/Modal/BoardModal'
 
 import { modalActions } from '../../../state/modal';
 
-
-// class BoardListContainer extends Component{
-//   componentWillMount() {
-//     const {
-//       fetchGetBoardListRequest,
-//       datas
-//         } = this.props;
-
-//         console.log(this.props);
-      
-//         fetchGetBoardListRequest()
-//   }
-
-//   render(){
-//     return (
-//           <div>
-//             <div>
-//               <BoardList/>
-//           </div>
-//           </div>
-//         )
-//   }
-// }
-
-
 const BoardListContainer = props => {
   // props로 받아온 값 저장
   const {
@@ -46,7 +21,6 @@ const BoardListContainer = props => {
     isModalOpen,
     fetchCloseModal,
   } = props;
-  
 
   // Map 돌릴 변수 초기값 설정
   let BoardListUP = [];
@@ -59,8 +33,11 @@ const BoardListContainer = props => {
   }
 
   return (
-    <div>
-      {BoardListUP}
+    <div className='container'>
+      <div className="row">
+        {BoardListUP}
+      </div>
+      
       <BoardModal datas={props}/>
 
       <div>

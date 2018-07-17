@@ -15,8 +15,8 @@ export function fetchBoardList() {
 //     console.log("Loading Success");
 // }
 
-export function fetchBoardView(id) {
-    const endPoint = 'http://localhost:4200/serverport';
+export function fetchBoardView( id ) {
+    const endPoint = 'http://localhost:4200/serverport/view';
     const boardViewUrl = id || '';
 
     return api.boardGet(
@@ -26,7 +26,7 @@ export function fetchBoardView(id) {
     )
 }
 
-export function fetchBoardCreate(datas) {
+export function fetchBoardCreate( datas ) {
     const endPoint = "http://localhost:4200/serverport/add";
     const boardCreateUrl = '';
 

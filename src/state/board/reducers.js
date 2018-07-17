@@ -37,6 +37,20 @@ export default function board(state = initState, action) {
       }
     }
 
+    case types.FETCH_GET_BOARDVIEW: {
+      return {
+        ...state,
+        datas: {}
+      }
+    }
+
+    case types.FETCH_GET_BOARDVIEW_SUCCESS: {
+      return {
+        ...state,
+        datas: action.payload,
+      }
+    }
+
     default: 
       return state
   }

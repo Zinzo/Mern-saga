@@ -20,10 +20,31 @@ export const fetchGetBoardListSuccess = ( datas ) => {
   }
 }
 
-export const fetchGetBoardCreateRequest = ( datas, dispatch ) => {
-  return { 
-    type: types.FETCH_GET_BOARDCREATE,
-    payload: datas,
-    dispatch: dispatch
+export const fetchGetBoardViewRequest = ( datas ) => {
+  return{
+    type: types.FETCH_GET_BOARDVIEW,
+    payload: datas ,
   }
 }
+
+export const fetchGetBoardViewSuccess = ( datas ) => {
+  return {
+    type: types.FETCH_GET_BOARDVIEW_SUCCESS,
+    payload:  datas ,
+  }
+}
+
+export const fetchGetBoardCreateRequest = ( datas ) => {
+  return { 
+    type: types.FETCH_GET_BOARDCREATE,
+    payload: datas
+  }
+}
+
+// export const fetchGetBoardCreateRequest = ( datas, dispatch ) => {
+//   return { 
+//     type: types.FETCH_GET_BOARDCREATE,
+//     payload: datas,
+//     dispatch: dispatch
+//   }
+// }

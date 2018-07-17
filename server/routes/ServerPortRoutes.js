@@ -28,6 +28,19 @@ ServerPortRouter.route('/').get(function (req, res) {
   });
 });
 
+ServerPortRouter.route('/view/:id').get(function (req, res) {
+  //const id = "5b4c7f9eab84282d0d1bb8c4";
+  
+  const id = req.params.id;
+
+  console.log(id);
+  ServerPort.findById(id, function (err, serverport){
+    console.log(serverport);
+    
+    res.json(serverport);
+  });
+});
+
 ServerPortRouter.route('/edit/:id').get(function (req, res) {
   const id = req.params.id;
   ServerPort.findById(id, function (err, serverport){

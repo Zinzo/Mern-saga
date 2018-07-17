@@ -17,7 +17,7 @@ import {
     fetchBoardList,
     fetchBoardLoading,
     fetchBoardCreate,
-
+    fetchBoardView,
   } from '../apis/board';
   
   export function* getBoardList(action) { 
@@ -32,6 +32,11 @@ import {
     yield put({ type : 'modal/CLOSE_MODAL' });
   }
 
+  export function* getBoardView( action ) {
+    const response = yield call(fetchBoardView,action.payload);
+    yield put(boardActions.fetchGetBoardViewSuccess(response));
+  }
+
   // export function* getBoardLoading(action) {
   //   const response = action;
   //   yield call(fetchBoardLoading);
@@ -42,6 +47,7 @@ import {
     yield all([
       takeEvery(boardTypes.FETCH_GET_BOARDLIST, getBoardList),
       takeEvery(boardTypes.FETCH_GET_BOARDCREATE, getBoardCreate),
+      takeEvery(boardTypes.FETCH_GET_BOARDVIEW, getBoardView),
       // takeEvery(boardTypes.FETCH_GET_BOARDLOADING, getBoardLoading)
     ])
   }
