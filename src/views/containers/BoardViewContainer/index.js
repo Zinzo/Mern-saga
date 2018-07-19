@@ -3,32 +3,38 @@ import { connect } from 'react-redux';
 
 import { 
   boardActions,
+  boardSelectors,
 } from '../../../state/board';
+
+import BoardView from '../../components/BoardView/BoardView'
 
 const BoardViewContainer = props => {
   // props로 받아온 값 저장
   const {
-    datas
+    datas,
   } = props;
 
   return (
-    <div className='container'>
-      <div className="row">
-        <div className="col-3">{datas.name}</div>
-        <div className="col-3">{datas.port}</div>
-        <div className="col-3">{datas.datas}</div>
-      </div>
-    </div>
-  )
+      <BoardView datas ={datas}/>
+    )
+  
 }
+
 
 const mapStateToProps = (state) => {
   return {
-      datas: state.board.datas
+      datas: boardSelectors.boardListSelector(state),
   }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+  const Id = props.param.id;
+  return(
+    dispatch(boardActions.fetchGetBoardViewRequest( Id ))
+  )
 }
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(BoardViewContainer);

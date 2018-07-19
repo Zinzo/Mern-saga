@@ -40,11 +40,3 @@ export const fetchGetBoardCreateRequest = ( datas ) => {
     payload: datas
   }
 }
-
-// export const fetchGetBoardCreateRequest = ( datas, dispatch ) => {
-//   return { 
-//     type: types.FETCH_GET_BOARDCREATE,
-//     payload: datas,
-//     dispatch: dispatch
-//   }
-// }

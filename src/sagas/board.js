@@ -33,15 +33,9 @@ import {
   }
 
   export function* getBoardView( action ) {
-    const response = yield call(fetchBoardView,action.payload);
+    const response = yield call(fetchBoardView, action.payload);
     yield put(boardActions.fetchGetBoardViewSuccess(response));
   }
-
-  // export function* getBoardLoading(action) {
-  //   const response = action;
-  //   yield call(fetchBoardLoading);
-  //   yield put(boardActions.fetchGetBoardListSuccess(response));
-  // }
   
   export function* watchBoardActions() {
     yield all([

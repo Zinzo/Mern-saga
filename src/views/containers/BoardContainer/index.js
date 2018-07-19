@@ -25,6 +25,7 @@ const BoardListContainer = props => {
   // Map 돌릴 변수 초기값 설정
   let BoardListUP = [];
 
+  console.log(datas)
   // Map 돌리기 전 예외 처리 및 변수에 담기
   if (datas.BoardDatas.length>0){
     BoardListUP = datas.BoardDatas.map(
@@ -50,6 +51,7 @@ const BoardListContainer = props => {
 }
 
 const mapStateToProps = (state) => {
+  console.log("mapStateToProps", state);
   return {
       datas: boardSelectors.boardListSelector(state),
       isFetching: state.board.isFetching,
@@ -58,13 +60,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  // 즉시 실행 아닐때 (액션)
-  // return {
-  //   fetchGetBoardListRequest: () => {
-  //       dispatch(boardActions.fetchGetBoardListRequest());
-  //   }
-  // }
-  
   // 즉시 실행 (액션)
   return(
     dispatch(boardActions.fetchGetBoardListRequest()),
